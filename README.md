@@ -2,7 +2,11 @@
 
 STEP 1: After running virtual enviroonment in terminal, change directory to \Address-Location-Rest-API .
 
-STEP 2: For run project use command command:
+STEP 2: Add .env file in \Address-Location-Rest-API\address_api directory and add google API key in formate:
+
+        API_KEY=yourKey
+
+STEP 3: For run project use command in \Address-Location-Rest-API direcctory:
 
         python manage.py runserver
         
