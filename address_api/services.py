@@ -11,7 +11,6 @@ load_dotenv()
 
 class LocationService:
     def get_lat_long(line1: str, output_type: str):
-        print("api_key", os.getenv("API_KEY"))
         address = line1.split(" ")
         url_address = "+".join(address)
         url = "https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}".format(

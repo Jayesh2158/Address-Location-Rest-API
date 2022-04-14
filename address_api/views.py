@@ -11,7 +11,7 @@ class AddressAPIView(APIView):
         serializer = AddressSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             return LocationService.get_lat_long(
-                line1=serializer.data["line1"],
+                line1=serializer.data["address"],
                 output_type=serializer.data["output_format"],
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

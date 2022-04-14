@@ -4,7 +4,7 @@ from rest_framework.test import APITestCase
 URL = "http://127.0.0.1:8000/address"
 
 DATA = {
-    "line1": "3582, 13 G Main Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008",
+    "address": "3582, 13 G Main Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008",
     "output_format": "json",
 }
 
@@ -14,11 +14,11 @@ class AddressTests(APITestCase):
         data = {"output_formate": "json"}
         response = self.client.post(URL, data)
         self.assertEqual(response.status_code, 400)
-        self.assertIn("line1", response.data)
+        self.assertIn("address", response.data)
 
     def test_with_missing_output_format_field(self):
         data = {
-            "line1": "3582, 13 G Main Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008"
+            "address": "3582, 13 G Main Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008"
         }
         response = self.client.post(URL, data)
         self.assertEqual(response.status_code, 400)
