@@ -11,6 +11,16 @@ load_dotenv()
 
 class LocationService:
     def get_lat_long(line1: str, output_type: str):
+        """
+        It takes a string as input, splits it into a list of words, joins the list with a "+" sign, and
+        then makes a request to the Google Maps API
+
+        :param line1: The address you want to get the latitude and longitude for
+        :type line1: str
+        :param output_type: str
+        :type output_type: str
+        :return: a response object.
+        """
         address = line1.split(" ")
         url_address = "+".join(address)
         url = "https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}".format(
@@ -27,6 +37,17 @@ class LocationService:
             )
 
     def xml_response(line1: str, lat: int, long: int):
+        """
+        It creates an XML response.
+
+        :param line1: The first line of the address
+        :type line1: str
+        :param lat: latitude
+        :type lat: int
+        :param long: longitude
+        :type long: int
+        :return: an HttpResponse object.
+        """
         root = ET.Element("root")
         address = ET.SubElement(root, "address")
         address.text = line1
